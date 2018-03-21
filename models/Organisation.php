@@ -6,7 +6,7 @@
  * @license https://www.humhub.com/licences
  */
 
-namespace humhub\modules\organisations\models;
+namespace humhub\modules\organisation\models;
 
 use Yii;
 use humhub\modules\gallery\models\Media;
