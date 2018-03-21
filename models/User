@@ -21,7 +21,7 @@ class User extends \humhub\modules\user\models\User
 
     public function getOrganisation()
     {
-        return $this->hasMany(Organisation::className(), ['id' => 'organisation_id'])
+        return $this->hasOne(Organisation::className(), ['organisation_id','id'])
                         ->viaTable('organisation_member', ['user_id' => 'id']);
 
         // return $this->hasOne(Organisation::className(), ['id' => 'user_id']);
