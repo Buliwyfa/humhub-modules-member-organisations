@@ -1,6 +1,6 @@
 <?php
 
-namespace humhub\modules\organisations;
+namespace humhub\modules\organisation;
 
 use Yii;
 use yii\helpers\Url;
