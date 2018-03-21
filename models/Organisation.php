@@ -9,41 +9,13 @@
 namespace humhub\modules\organisations\models;
 
 use Yii;
+use humhub\modules\gallery\models\Media;
 
 /**
  * This is the model class for table "profile".
  *
  * @property integer $user_id
- * @property string $firstname
- * @property string $lastname
- * @property string $title
- * @property string $gender
- * @property string $street
- * @property string $zip
- * @property string $city
- * @property string $country
- * @property string $state
- * @property integer $birthday_hide_year
- * @property string $birthday
- * @property string $about
- * @property string $phone_private
- * @property string $phone_work
- * @property string $mobile
- * @property string $fax
- * @property string $im_skype
- * @property string $im_msn
- * @property integer $im_icq
- * @property string $im_xmpp
- * @property string $url
- * @property string $url_facebook
- * @property string $url_linkedin
- * @property string $url_xing
- * @property string $url_youtube
- * @property string $url_vimeo
- * @property string $url_flickr
- * @property string $url_myspace
- * @property string $url_googleplus
- * @property string $url_twitter
+
  */
 class Organisation extends \yii\db\ActiveRecord
 {
@@ -63,7 +35,7 @@ class Organisation extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name','mail_slug'], 'string'],
+            [['name', 'mail_slug'], 'string'],
             [['gallery_media_id'], 'integer'],
             [['gallery_media_id'], 'integer'],
         ];
@@ -76,6 +48,11 @@ class Organisation extends \yii\db\ActiveRecord
     {
         $labels = [];
         return $labels;
+    }
+
+    public function getMedia()
+    {
+        return $this->hasOne(Media::className(), ['id' => 'gallery_media_id']);
     }
 
 }
