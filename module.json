@@ -1,0 +1,10 @@
+{
+    "id": "organisations",
+    "name": "HumHub platform member organisation module",
+    "description": "",
+    "keywords": ["enchancement", "user"],
+    "version": "0.1",
+    "humhub": {
+        "minVersion": "1.2.4"
+    }
+}
