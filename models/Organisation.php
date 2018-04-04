@@ -10,6 +10,7 @@ namespace humhub\modules\organisations\models;
 
 use Yii;
 use humhub\modules\gallery\models\Media;
+use humhub\modules\user\models\User;
 
 /**
  * This is the model class for table "profile".
