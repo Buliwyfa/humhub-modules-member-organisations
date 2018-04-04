@@ -54,6 +54,7 @@ class UserTagList extends Widget
             $labelClass = 'label-default';
             if ($printOrganisation && $tag == $organisationTag[0]) {
                 $printOrganisation = false;
+                $labelClass='label-primary';
                 if (isset($organisation->media) && isset($organisation->media->href) && $organisation->media->href != '') {
                     $url = $organisation->media->href;
                 }
