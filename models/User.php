@@ -22,7 +22,7 @@ class User extends \humhub\modules\user\models\User
      */
     public function getOrganisationMember()
     {
-        return $this->hasOne(OrganisationMember::className(), ['user_id' => 'id']);
+        return $this->hasOne(OrganisationMember::className(), ['id'=>'user_id']);
     }
 
     public function getOrganisation()
