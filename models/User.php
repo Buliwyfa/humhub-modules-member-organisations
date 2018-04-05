@@ -16,18 +16,11 @@ namespace humhub\modules\organisations\models;
 class User extends \humhub\modules\user\models\User
 {
 
-    /**
-     * Returns all Group relations of this user as ActiveQuery
-     * @return ActiveQuery
-     */
-    public function getOrganisationMember()
-    {
-        return $this->hasOne(OrganisationMember::className(), ['id' => 'user_id']);
-    }
+ 
 
     public function getOrganisation()
     {
-        return $this->hasOne(Organisation::className(), ['organisation_id' => 'id'])->via('organisationMember');
+        return $this->hasOne(Organisation::className(),['id'=>'organisation_id'])->viaTable('organisation_member',['user_id'=>'id']);
     }
 
 }
