@@ -52,15 +52,22 @@ class UserTagList extends Widget
         foreach ($tags as $tag) {
             $url = ['/directory/directory/members', 'keyword' => $tag];
             $labelClass = 'label-default';
+            $extraLinkOptions = [];
             if ($printOrganisation && $tag == $organisationTag[0]) {
                 $printOrganisation = false;
-                $labelClass='label-primary';
+                $extraLinkOptions = ['target' => '_blank'];
+                $labelClass = 'label-primary';
                 if (isset($organisation->media) && isset($organisation->media->href) && $organisation->media->href != '') {
                     $url = $organisation->media->href;
                 }
             }
 
-            $html .= Html::a(Html::encode($tag), Url::to($url), ['class' => 'label ' . $labelClass]) . "&nbsp";
+            $linkOptions = ['class' => 'label ' . $labelClass];
+            if (!empty($extraLinkOptions)) {
+                $linkOptions = array_merge($linkOptions, $extraLinkOptions);
+            }
+
+            $html .= Html::a(Html::encode($tag), Url::to($url), $linkOptions) . "&nbsp";
         }
 
         return $html;
